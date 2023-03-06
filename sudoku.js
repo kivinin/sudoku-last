@@ -10,10 +10,10 @@ function solve(boardString) {
     for (let j = 0; j < resArrV.length; j++) {
       if (resArrV[i][j] == "-") {
         //проверка на символ -
-        if (zN === fillArrN[i].length-1) {
+        if (zN === fillArrN[i].length - 1) {
           zN = 0;
         }
-      //  console.log(i,j,zN);
+        //  console.log(i,j,zN);
         for (let z = zN; z < fillArrN[i].length; z++) {
           // цикл по fillArrN  с потенциальными значениями
           if (flag != false) {
@@ -27,7 +27,7 @@ function solve(boardString) {
             }
           }
         }
-       // zN = 0
+        // zN = 0
         flag = true;
       }
     }
@@ -42,9 +42,7 @@ function solve(boardString) {
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
-function isSolved(board) {
-
-}
+function isSolved(board) {}
 
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
@@ -52,7 +50,12 @@ function isSolved(board) {
  * Подумай, как симпатичнее сформировать эту строку.
  */
 function prettyBoard(board) {
-
+  let str = board.flat().join("");
+  let strArray = "";
+  for (let j = 0; j < 81; j += 9) {
+    strArray += str.slice(j, j + 9) + "\n";
+  }
+  console.log(strArray);
 }
 
 // Экспортировать функции для использования в другом файле (например, readAndSolve.js).
