@@ -61,7 +61,29 @@ let numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
 function isSolved(board) {
+  function valid(arr) {
+    for (let j = 0; j < arr.length; j++) {   
+        let set = new Set();
+        for (let i = 0; i < arr[j].length; i++) {
+            set.add(arr[j][i])
+        }
+        if (set.size != 9) {
+            return false
+        } 
+    } 
+    return true
+  }
 
+  let newBoard = board[0].map((item, index) => board.map(item => item[index]));
+
+  let newSqrBoard = [[], [], [], [], [], [], [], [], []];
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      newSqrBoard[Math.floor(i/3) * 3 + Math.floor(j/3)].push(board[i][j])    
+    }
+  }
+
+  return (valid(board) && valid(newBoard) && valid(newSqrBoard))
 }
 
 /**
