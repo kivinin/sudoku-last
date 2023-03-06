@@ -4,6 +4,24 @@
  * Договорись со своей командой, в каком формате возвращать этот результат.
  */
 function solve(boardString) {
+
+let numArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  let fillArr = [];
+  let fillArrN = [];
+  let resArrV = [];
+  for (let j = 0; j < 81; j += 9) {
+    resArrV.push(boardString.split("").splice(j, 9));
+    }
+  for (let i = 0; i < resArrV.length; i++) {
+    numArr.forEach((el) => {
+      if (!resArrV[i].includes(el)) {
+        fillArr.push(el);
+      }
+    });
+    fillArrN.push(fillArr); // массив не достающих значений
+    fillArr = [];
+  }
+  
   let flag = true;
   let zN = 0;
   for (let i = 0; i < resArrV.length; i++) {
