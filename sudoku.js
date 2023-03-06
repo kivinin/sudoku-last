@@ -11,7 +11,7 @@ function solve(boardString) {
  * Возвращает булевое значение — решено это игровое поле или нет.
  */
 function isSolved(board) {
-console.log("rfef");
+
 }
 
 /**
