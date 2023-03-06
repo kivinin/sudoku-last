@@ -92,7 +92,12 @@ function isSolved(board) {
  * Подумай, как симпатичнее сформировать эту строку.
  */
 function prettyBoard(board) {
-
+  let str = board.flat().join("");
+  let strArray = "";
+  for (let j = 0; j < 81; j += 9) {
+    strArray += str.slice(j, j + 9) + "\n";
+  }
+  console.table(strArray);
 }
 
 // Экспортировать функции для использования в другом файле (например, readAndSolve.js).
